@@ -44,8 +44,17 @@ body {
 .brand {
   color: #fff;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 700;
   letter-spacing: 0.3px;
+}
+
+.brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
 }
 
 .nav-link {
@@ -66,6 +75,16 @@ body {
 .hero p {
   margin: 0;
   color: #edf2ff;
+}
+
+.hero-logo {
+  display: block;
+  width: min(540px, 94%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  padding: 0.65rem;
+  margin-bottom: 1rem;
 }
 
 .hero.compact {
@@ -105,6 +124,37 @@ body {
 .feature-section ul,
 .legal ul {
   padding-left: 1.1rem;
+}
+
+.photos {
+  margin-top: 1rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.photo-card {
+  margin: 0;
+  background: #f8f9fc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem;
+  text-align: center;
+}
+
+.photo-card img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.photo-card figcaption {
+  color: var(--muted);
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .button {
