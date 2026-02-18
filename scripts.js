@@ -1,8 +1,19 @@
 (function () {
+  var allImages = Array.from(document.querySelectorAll("img"));
+  allImages.forEach(function (img, idx) {
+    // Keep only the first hero image eager for LCP, lazy-load the rest.
+    var isPrimaryHero = idx === 0 && !!img.closest(".hero");
+    if (!isPrimaryHero) img.loading = "lazy";
+    img.decoding = "async";
+  });
+
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var elements = Array.from(document.querySelectorAll("section, .card"));
   if (elements.length) {
     if (prefersReduced) {
+      elements.forEach(function (el) { el.classList.add("is-visible"); });
+    } else if (elements.length > 24) {
+      // Large pages (guides/blog) skip reveal animation to reduce scripting/layout cost.
       elements.forEach(function (el) { el.classList.add("is-visible"); });
     } else {
       elements.forEach(function (el) { el.classList.add("reveal"); });
