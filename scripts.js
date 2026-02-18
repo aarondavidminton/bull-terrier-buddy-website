@@ -9,8 +9,10 @@
 
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var elements = Array.from(document.querySelectorAll("section, .card"));
+  var isGuideOrBlogPage = !!document.getElementById("guides-grid") || !!document.querySelector(".blog-list");
   if (elements.length) {
-    if (prefersReduced) {
+    if (prefersReduced || isGuideOrBlogPage) {
+      // Guides/blog should render immediately without scroll-triggered reveal effects.
       elements.forEach(function (el) { el.classList.add("is-visible"); });
     } else if (elements.length > 24) {
       // Large pages (guides/blog) skip reveal animation to reduce scripting/layout cost.
