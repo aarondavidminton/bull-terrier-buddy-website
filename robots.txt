@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aarondavidminton.github.io/bull-terrier-buddy-website/sitemap.xml
